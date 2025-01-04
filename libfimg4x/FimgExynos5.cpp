@@ -53,26 +53,27 @@ FimgApi *FimgV4x::CreateInstance()
 {
     FimgApi *ptrFimg = NULL;
 
-if (m_curFimgV4xIndex < NUMBER_FIMG_LIST) {
-    int i = m_curFimgV4xIndex;
+    for(int i = m_curFimgV4xIndex; i < NUMBER_FIMG_LIST; i++) {
+        if (m_ptrFimgApiList[i] == NULL)
+            m_ptrFimgApiList[i] = new FimgV4x;
 
-    if (m_ptrFimgApiList[i] == nullptr) {
-        m_ptrFimgApiList[i] = new FimgV4x;
-    }
-
-    if (!m_ptrFimgApiList[i]->FlagCreate()) {
-        if (!m_ptrFimgApiList[i]->Create()) {
-            PRINT("%s::Create(%d) fail\n", __func__, i);
-        } else {
-            m_numOfInstance++;
+        if (m_ptrFimgApiList[i]->FlagCreate() == false) {
+            if (m_ptrFimgApiList[i]->Create() == false) {
+                PRINT("%s::Create(%d) fail\n", __func__, i);
+                goto CreateInstance_End;
+            }
+            else
+                m_numOfInstance++;
         }
+
+        if (i < NUMBER_FIMG_LIST - 1)
+            m_curFimgV4xIndex = i + 1;
+        else
+            m_curFimgV4xIndex = 0;
+
+        ptrFimg = m_ptrFimgApiList[i];
+        goto CreateInstance_End;
     }
-
-    // Update the current index and assign the pointer
-    m_curFimgV4xIndex = (i + 1) % NUMBER_FIMG_LIST;
-    ptrFimg = m_ptrFimgApiList[i];
-}
-
 
 CreateInstance_End :
 
