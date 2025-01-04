@@ -17,7 +17,7 @@ include $(CLEAR_VARS)
 
 LOCAL_PRELINK_MODULE := false
 LOCAL_SHARED_LIBRARIES := liblog libion libutils libcutils libexynosutils \
-	libexynosv4l2 libhwcutils libsync libmpp
+	libexynosv4l2 libhwcutils libsync libmpp libhardware
 
 ifeq ($(BOARD_USES_FIMC), true)
 LOCAL_SHARED_LIBRARIES += libexynosfimc

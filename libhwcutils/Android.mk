@@ -19,7 +19,7 @@ LOCAL_PRELINK_MODULE := false
 #LOCAL_SHARED_LIBRARIES := liblog libutils libcutils libexynosutils \
 #libexynosv4l2 libsync libion_exynos libmpp
 LOCAL_SHARED_LIBRARIES := liblog libutils libcutils libexynosutils \
-			  libexynosv4l2 libsync libion libmpp
+			  libexynosv4l2 libsync libion libmpp libhardware
 
 ifeq ($(BOARD_DISABLE_HWC_DEBUG), true)
 	LOCAL_CFLAGS += -DDISABLE_HWC_DEBUG
