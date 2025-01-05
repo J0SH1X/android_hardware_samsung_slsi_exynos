@@ -52,7 +52,8 @@ FimgV4x::~FimgV4x()
 FimgApi *FimgV4x::CreateInstance()
 {
     FimgApi *ptrFimg = NULL;
-
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunreachable-code-loop-increment"
     for(int i = m_curFimgV4xIndex; i < NUMBER_FIMG_LIST; i++) {
         if (m_ptrFimgApiList[i] == NULL)
             m_ptrFimgApiList[i] = new FimgV4x;
@@ -74,6 +75,7 @@ FimgApi *FimgV4x::CreateInstance()
         ptrFimg = m_ptrFimgApiList[i];
         goto CreateInstance_End;
     }
+#pragma clang diagnostic pop
 
 CreateInstance_End :
 
