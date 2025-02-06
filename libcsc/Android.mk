@@ -21,13 +21,14 @@ LOCAL_EXPORT_C_INCLUDE_DIRS := $(LOCAL_PATH)
 LOCAL_CFLAGS :=
 
 LOCAL_MODULE := libcsc
+LOCAL_VENDOR_MODULE := true
 
 LOCAL_PRELINK_MODULE := false
 
 LOCAL_ARM_MODE := arm
 
 LOCAL_STATIC_LIBRARIES := libswconverter
-LOCAL_SHARED_LIBRARIES := liblog libexynosutils libexynosscaler
+LOCAL_SHARED_LIBRARIES := libexynosutils libexynosscaler libcutils liblog libutils
 
 LOCAL_CFLAGS += -DUSE_SAMSUNG_COLORFORMAT
 

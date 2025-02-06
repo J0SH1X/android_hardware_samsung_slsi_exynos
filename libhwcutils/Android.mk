@@ -19,7 +19,7 @@ LOCAL_PRELINK_MODULE := false
 #LOCAL_SHARED_LIBRARIES := liblog libutils libcutils libexynosutils \
 #libexynosv4l2 libsync libion_exynos libmpp
 LOCAL_SHARED_LIBRARIES := liblog libutils libcutils libexynosutils \
-			  libexynosv4l2 libsync libion libmpp
+			  libexynosv4l2 libsync libion libmpp libhardware
 
 ifeq ($(BOARD_DISABLE_HWC_DEBUG), true)
 	LOCAL_CFLAGS += -DDISABLE_HWC_DEBUG
@@ -103,6 +103,7 @@ endif
 include $(TOP)/hardware/samsung_slsi/$(TARGET_SOC)/libhwcutilsmodule/Android.mk
 
 LOCAL_MODULE := libhwcutils
+LOCAL_VENDOR_MODULE := true
 
 include $(TOP)/hardware/samsung_slsi/exynos/BoardConfigCFlags.mk
 include $(BUILD_SHARED_LIBRARY)

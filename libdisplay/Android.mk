@@ -17,7 +17,7 @@ include $(CLEAR_VARS)
 
 LOCAL_PRELINK_MODULE := false
 LOCAL_SHARED_LIBRARIES := liblog libion libutils libcutils libexynosutils \
-	libexynosv4l2 libhwcutils libsync libmpp
+	libexynosv4l2 libhwcutils libsync libmpp libhardware
 
 ifeq ($(BOARD_USES_FIMC), true)
 LOCAL_SHARED_LIBRARIES += libexynosfimc
@@ -54,6 +54,7 @@ LOCAL_SRC_FILES := \
 include $(TOP)/hardware/samsung_slsi/$(TARGET_SOC)/libdisplaymodule/Android.mk
 
 LOCAL_MODULE := libexynosdisplay
+LOCAL_VENDOR_MODULE := true
 
 include $(TOP)/hardware/samsung_slsi/exynos/BoardConfigCFlags.mk
 include $(BUILD_SHARED_LIBRARY)

@@ -16,7 +16,7 @@ LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
 LOCAL_PRELINK_MODULE := false
-LOCAL_SHARED_LIBRARIES := liblog libutils libcutils
+LOCAL_SHARED_LIBRARIES := liblog libutils libcutils libhardware
 
 LOCAL_CFLAGS += -DEXYNOS_PLATFORM_ON_ANDROID
 
@@ -28,6 +28,7 @@ LOCAL_SRC_FILES := ExynosMutex.cpp \
 		   Exynos_log.c
 
 LOCAL_MODULE := libexynosutils
+LOCAL_VENDOR_MODULE := true
 
 LOCAL_SRC_FILES += exynos_format_v4l2.c
 LOCAL_C_INCLUDES += \

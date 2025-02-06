@@ -40,7 +40,7 @@
 #include <decon-fb.h>
 #endif
 
-#include <EGL/egl.h>
+#include "egl.h"
 
 #define HWC_REMOVE_DEPRECATED_VERSIONS 1
 
@@ -50,7 +50,7 @@
 #include <hardware/gralloc.h>
 #include <hardware/hardware.h>
 #include <hardware/hwcomposer.h>
-#include <hardware_legacy/uevent.h>
+#include "uevent.h"
 #include <utils/String8.h>
 #include <utils/Vector.h>
 #include <utils/Timers.h>
